@@ -1,3 +1,6 @@
+.settings/
+.project
+.classpath
 /.jsdtscope
 /org.eclipse.jdt.core.prefs
 /org.eclipse.m2e.core.prefs
