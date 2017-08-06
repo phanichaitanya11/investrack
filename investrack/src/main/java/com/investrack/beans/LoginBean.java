@@ -53,4 +53,9 @@ public class LoginBean implements Serializable {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+
+	@Override
+	public String toString() {
+		return "LoginBean [username=" + username + ", password=" + password + ", isActive=" + isActive + "]";
+	}
 }

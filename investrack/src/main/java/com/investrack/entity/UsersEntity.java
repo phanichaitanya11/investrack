@@ -12,9 +12,14 @@ import org.hibernate.annotations.Type;
 public class UsersEntity {
 
 	@Id
+	@Column(name="uname")
 	private String username;
 	
+	@Column(name="pwd")
 	private String password;
+	
+	@Column(name="userid")
+	private String userId;
 
 	@Column(name="active_flag")
 	@Type(type="numeric_boolean")
@@ -61,5 +66,18 @@ public class UsersEntity {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	
+
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 }

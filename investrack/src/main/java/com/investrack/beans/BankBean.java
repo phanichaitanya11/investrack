@@ -6,6 +6,10 @@ public class BankBean implements Serializable {
 
 	private static final long serialVersionUID = 482334032017535317L;
 
+	private String userId;
+	
+	private String bankacntId;
+	
 	private String bankName;
 	
 	private String accountNumber;
@@ -14,7 +18,39 @@ public class BankBean implements Serializable {
 	
 	private String IfscCode;
 	
-	private String bankAddress;
+	private String primaryHolderName;
+	
+	private String secondaryHolderName;
+	
+	private boolean isJointAcnt;
+
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	/**
+	 * @return the bankacntId
+	 */
+	public String getBankacntId() {
+		return bankacntId;
+	}
+
+	/**
+	 * @param bankacntId the bankacntId to set
+	 */
+	public void setBankacntId(String bankacntId) {
+		this.bankacntId = bankacntId;
+	}
 
 	/**
 	 * @return the bankName
@@ -73,22 +109,52 @@ public class BankBean implements Serializable {
 	}
 
 	/**
-	 * @return the bankAddress
+	 * @return the primaryHolderName
 	 */
-	public String getBankAddress() {
-		return bankAddress;
+	public String getPrimaryHolderName() {
+		return primaryHolderName;
 	}
 
 	/**
-	 * @param bankAddress the bankAddress to set
+	 * @param primaryHolderName the primaryHolderName to set
 	 */
-	public void setBankAddress(String bankAddress) {
-		this.bankAddress = bankAddress;
+	public void setPrimaryHolderName(String primaryHolderName) {
+		this.primaryHolderName = primaryHolderName;
+	}
+
+	/**
+	 * @return the secondaryHolderName
+	 */
+	public String getSecondaryHolderName() {
+		return secondaryHolderName;
+	}
+
+	/**
+	 * @param secondaryHolderName the secondaryHolderName to set
+	 */
+	public void setSecondaryHolderName(String secondaryHolderName) {
+		this.secondaryHolderName = secondaryHolderName;
+	}
+
+	/**
+	 * @return the isJointAcnt
+	 */
+	public boolean isJointAcnt() {
+		return isJointAcnt;
+	}
+
+	/**
+	 * @param isJointAcnt the isJointAcnt to set
+	 */
+	public void setJointAcnt(boolean isJointAcnt) {
+		this.isJointAcnt = isJointAcnt;
 	}
 
 	@Override
 	public String toString() {
-		return "BankBean [bankName=" + bankName + ", accountNumber=" + accountNumber + ", branchName=" + branchName
-				+ ", IfscCode=" + IfscCode + ", bankAddress=" + bankAddress + "]";
+		return "BankBean [userId=" + userId + ", bankacntId=" + bankacntId + ", bankName=" + bankName
+				+ ", accountNumber=" + accountNumber + ", branchName=" + branchName + ", IfscCode=" + IfscCode
+				+ ", primaryHolderName=" + primaryHolderName + ", secondaryHolderName=" + secondaryHolderName
+				+ ", isJointAcnt=" + isJointAcnt + "]";
 	}
 }

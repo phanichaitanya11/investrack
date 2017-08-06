@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.investrack.beans.UserBean;
 import com.investrack.entity.UsersEntity;
 
 @Repository
@@ -18,7 +19,10 @@ public class LoginDaoImpl implements LoginDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public boolean validateUser(UsersEntity userEnty) throws SQLException {
+	@Autowired
+	private UserBean userBean;
+	
+	public boolean validateUser(UsersEntity userEnty) throws Exception {
 		boolean isValidUser = false;
 		if (userEnty != null) {
 			log.debug("Trying to validate the user");
@@ -26,6 +30,7 @@ public class LoginDaoImpl implements LoginDao {
 			UsersEntity user = (UsersEntity) session.get(UsersEntity.class, userEnty.getUsername());
 			if (user != null && userEnty.getPassword().equals(user.getPassword()) && user.isActive()) {
 				isValidUser = true;
+				setupUserBean(user);
 			}
 			log.debug("user validated successfully");
 		}
@@ -44,5 +49,12 @@ public class LoginDaoImpl implements LoginDao {
 			log.debug("User active status checked successfully");
 		}
 		return isActiveUser;
+	}
+	
+	private void setupUserBean(UsersEntity user) throws Exception {
+		if (user != null) {
+			userBean.setUserId(user.getUserId());
+			userBean.setUsername(user.getPassword());
+		}
 	}
 }
